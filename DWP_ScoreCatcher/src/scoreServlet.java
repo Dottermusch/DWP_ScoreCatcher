@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import oracle.sql.DATE;
 import model.Score;
 import myTools.DBUtil;
 
@@ -51,6 +53,7 @@ public class scoreServlet extends HttpServlet {
 		String url = null;
 		String action = request.getParameter("action");
 		String scoreString = request.getParameter("score");
+		Date date = new Date();
 		
 		
 		
@@ -62,6 +65,7 @@ public class scoreServlet extends HttpServlet {
 			url = "/getScore.jsp";
 			Score score = new Score();
 			score.setScore(scoreValue);
+			score.setScoreDate(date);
 			
 			EntityManager em = DBUtil.getEmFactory().createEntityManager();
 			EntityTransaction trans = em.getTransaction();

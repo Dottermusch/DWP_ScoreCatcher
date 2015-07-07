@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Date;
 
 
 /**
@@ -22,6 +23,10 @@ public class Score implements Serializable {
 
 	private BigDecimal score;
 
+	@Temporal(TemporalType.DATE)
+	@Column(name="SCORE_DATE")
+	private Date scoreDate;
+
 	public Score() {
 	}
 
@@ -39,6 +44,14 @@ public class Score implements Serializable {
 
 	public void setScore(BigDecimal score) {
 		this.score = score;
+	}
+
+	public Date getScoreDate() {
+		return this.scoreDate;
+	}
+
+	public void setScoreDate(Date scoreDate) {
+		this.scoreDate = scoreDate;
 	}
 
 }

@@ -24,9 +24,9 @@ public class ScoreTest
 		
 		try 
 		{
-			Score score = em.find(Score.class, (long)751);
+			Score score = em.find(Score.class, (long)1351);
 			
-			assertEquals (new BigDecimal(78), score.getScore());
+			assertEquals (new BigDecimal(86), score.getScore());
 		} 
 		catch (Exception e)
 		{
@@ -45,7 +45,7 @@ public class ScoreTest
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "SELECT s FROM Score s WHERE s.scoreId < :score_Id";
 		TypedQuery<Score> q = em.createQuery(qString, Score.class);
-		q.setParameter("score_Id", new BigDecimal(803));
+		q.setParameter("score_Id", new BigDecimal(1356));
 		BigDecimal total = new BigDecimal(0);
 		
 		
@@ -77,7 +77,7 @@ public class ScoreTest
 		{
 			BigDecimal average = total.divide(new BigDecimal(new Integer(scores.size())));
 			
-			assertEquals (new BigDecimal("68.8"), average);
+			assertEquals (new BigDecimal("71.6"), average);
 		}
 		catch (Exception e)
 		{

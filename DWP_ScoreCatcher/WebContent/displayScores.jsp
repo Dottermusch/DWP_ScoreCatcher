@@ -11,14 +11,15 @@
 </head>
 <body>
 	<h1>Display Scores & Average</h1>
-	<h3>Below are the scores with the average</h3>
+	<h3>Below are the scores with the average:</h3>
 	<c:forEach var="score" items="${scores}">
-		<span><c:out value="${score.score}" /></span><br>
+		<span><c:out value="${score.score}" />&nbsp;&nbsp;<fmt:formatDate type="both" 
+			dateStyle="medium" timeStyle="medium" value="${score.scoreDate}" /></span><br>
 	</c:forEach>
 	<br>
 	<h3>The average score is:</h3>
-<%-- 	<span><fmt:formatNumber type="number" maxIntegerDigits="2" minFractionDigits="2" value="${average}" /></span> --%>
-	<c:out value="${average}" />
+	<span><fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${average}" /></span>
+<%-- 	<c:out value="${average}" /> --%>
 	<br>
 	<c:out value="${message}" />
 	<br>
